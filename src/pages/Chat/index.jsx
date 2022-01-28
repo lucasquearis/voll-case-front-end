@@ -7,7 +7,22 @@ function Chat() {
   if (!usernameProvider) {
     return <Navigate to="/login" />;
   }
-  return (<h1>{`Bem vindo ao chat ${usernameProvider}`}</h1>);
+  return (
+    <div>
+      <h1>{`Bem vindo ao chat ${usernameProvider}`}</h1>
+      <ul className="users-list">
+        <li>Fulano</li>
+        <li>{usernameProvider}</li>
+      </ul>
+      <ul className="messages-list">
+        <li>Fulano: Oláa</li>
+      </ul>
+      <form>
+        <input type="text" />
+        <button type="button">Enviar</button>
+      </form>
+    </div>
+  );
 }
 
 export default Chat;
