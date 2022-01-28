@@ -1,26 +1,29 @@
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
+import UserContext from '../../context/UserContext';
 
 function Login() {
-  const [username, setUsername] = useState('');
   const navigate = useNavigate();
 
-  const loginHandler = (e) => {
-    e.preventDefault();
-    navigate('/chat');
-  };
+  const { setUsernameProvider, usernameProvider } = useContext(UserContext);
 
-  const inputHandler = ({ target: { value } }) => {
-    setUsername(value);
+  const loginHandler = () => {
+    navigate('/chat');
   };
 
   return (
     <div>
-      <h1>Eu sou o Login</h1>
+      <h1>Seja muito Bem Vindo(a) ao My Personal Chat!</h1>
+      <p>Como podemos lhe chamar?</p>
       <form>
-        <input value={username} onChange={inputHandler} type="text" placeholder="UserName" />
+        <input
+          value={usernameProvider}
+          onChange={({ target: { value } }) => setUsernameProvider(value)}
+          type="text"
+          placeholder="Usuário(a)"
+        />
         <button onClick={loginHandler} type="button">
-          Log-in
+          Entrar
         </button>
       </form>
     </div>
