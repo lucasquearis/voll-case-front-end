@@ -1,23 +1,19 @@
 import React from 'react';
-import { string } from 'prop-types';
+import { useSelector } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
-import userList from '../../mocks/userList';
+// import userList from '../../mocks/userList';
 import './style.css';
 
-function UserList({ name }) {
+function UserList() {
+  const { userList } = useSelector((state) => state.socketReducer);
   return (
     <div className="users-container">
       <h1 className="users-title">Usuários Onlines</h1>
       <ul className="users-list">
-        <li>{name}</li>
-        {userList.map((user) => (<li key={uuidv4()}>{user}</li>))}
+        {userList.map(({ name }) => (<li key={uuidv4()}>{name}</li>))}
       </ul>
     </div>
   );
 }
-
-UserList.propTypes = {
-  name: string.isRequired,
-};
 
 export default UserList;

@@ -21,7 +21,7 @@ function Chat() {
       <h1 className="header-name">{`Bem vindo ao chat ${userName}!`}</h1>
       <div className="users-box">
         <div className="userlist">
-          <UserList name={userName} />
+          <UserList />
         </div>
         <Messages />
       </div>
