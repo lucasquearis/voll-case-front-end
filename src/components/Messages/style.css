@@ -1,0 +1,63 @@
+.message-box-others {
+  background-color: white;
+  border-radius: 0 20px 20px 20px;
+  border: 1px solid rgb(204, 204, 204);
+  width: max-content;
+}
+
+.message-box-you {
+  background-color: #DBF7C4;
+  border-radius: 20px 0px 20px 20px;
+  width: max-content;
+  border: 1px solid rgb(204, 204, 204);
+}
+
+.messages-list {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.ul-messages {
+  list-style: none;
+  padding: 0;
+  margin-left: 20px;
+}
+
+.li-messages-others {
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+  align-items: flex-start;
+}
+
+.li-messages-you {
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+  align-items: flex-end;
+}
+
+.message-username-others {
+  color: red;
+  font-size: 13px;
+  margin: 12px 12px 0 12px;
+}
+
+.message-username-you {
+  color: black;
+  font-size: 13px;
+  margin: 0px 12px 0 12px;
+}
+
+.message-you {
+  color: black;
+  font-size: 22px;
+  margin: 0px 12px 12px 12px;
+}
+
+.message-others {
+  color: black;
+  font-size: 22px;
+  margin: 0px 12px 12px 12px;
+}

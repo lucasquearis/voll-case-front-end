@@ -5,6 +5,7 @@ import Messages from '../../components/Messages';
 import NotFoundUserName from '../../components/notFoundUserName';
 import UserList from '../../components/UserList';
 import useInput from '../hooks/useInput';
+import './style.css';
 
 function Chat() {
   const [message, setMessage, setStateMessage] = useInput('');
@@ -16,11 +17,17 @@ function Chat() {
   };
 
   return userName ? (
-    <div>
+    <div className="chat-container">
       <h1>{`Bem vindo ao chat ${userName}`}</h1>
-      <UserList name={userName} />
-      <Messages />
-      <Form buttonName="Enviar" valueInput={message} onChange={setMessage} onClick={sendMessage} />
+      <div className="users-box">
+        <div className="userlist">
+          <UserList name={userName} />
+        </div>
+        <Messages />
+      </div>
+      <div className="message-form">
+        <Form buttonName="Enviar" valueInput={message} onChange={setMessage} onClick={sendMessage} />
+      </div>
     </div>
   ) : <NotFoundUserName />;
 }

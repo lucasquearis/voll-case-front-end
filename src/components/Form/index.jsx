@@ -7,7 +7,7 @@ function Form({
   return (
     <form onSubmit={onClick}>
       <input type="text" value={valueInput} onChange={onChange} />
-      <button type="button">{buttonName}</button>
+      <button type="button" onClick={onClick}>{buttonName}</button>
     </form>
   );
 }
