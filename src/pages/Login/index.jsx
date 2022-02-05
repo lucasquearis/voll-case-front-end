@@ -1,14 +1,17 @@
-import React, { useContext } from 'react';
+import React from 'react';
+import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import UserContext from '../../context/UserContext';
+import useInput from '../hooks/useInput';
+import { actionUser } from '../../redux/actions/user';
 
 function Login() {
   const navigate = useNavigate();
-
-  const { setUsernameProvider, usernameProvider } = useContext(UserContext);
+  const dispatch = useDispatch();
+  const [name, setName] = useInput('');
 
   const loginHandler = () => {
     navigate('/chat');
+    dispatch(actionUser(name));
   };
 
   return (
@@ -17,10 +20,10 @@ function Login() {
       <p>Como podemos lhe chamar?</p>
       <form>
         <input
-          value={usernameProvider}
-          onChange={({ target: { value } }) => setUsernameProvider(value)}
+          value={name}
           type="text"
           placeholder="Usuário(a)"
+          onChange={setName}
         />
         <button onClick={loginHandler} type="button">
           Entrar

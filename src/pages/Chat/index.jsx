@@ -1,18 +1,16 @@
-import React, { useContext } from 'react';
-import { Navigate } from 'react-router-dom';
-import UserContext from '../../context/UserContext';
+import React from 'react';
+import { useSelector } from 'react-redux';
+import NotFoundUserName from '../../components/notFoundUserName';
 
 function Chat() {
-  const { usernameProvider } = useContext(UserContext);
-  if (!usernameProvider) {
-    return <Navigate to="/login" />;
-  }
-  return (
+  const { userName } = useSelector((state) => state.userReducer);
+
+  return userName ? (
     <div>
-      <h1>{`Bem vindo ao chat ${usernameProvider}`}</h1>
+      <h1>{`Bem vindo ao chat ${userName}`}</h1>
       <ul className="users-list">
         <li>Fulano</li>
-        <li>{usernameProvider}</li>
+        <li>{userName}</li>
       </ul>
       <ul className="messages-list">
         <li>Fulano: Oláa</li>
@@ -22,7 +20,7 @@ function Chat() {
         <button type="button">Enviar</button>
       </form>
     </div>
-  );
+  ) : <NotFoundUserName />;
 }
 
 export default Chat;
