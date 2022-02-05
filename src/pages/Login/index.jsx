@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import useInput from '../hooks/useInput';
 import { actionUser } from '../../redux/actions/user';
+import Form from '../../components/Form';
 
 function Login() {
   const navigate = useNavigate();
@@ -18,17 +19,7 @@ function Login() {
     <div>
       <h1>Seja muito Bem Vindo(a) ao My Personal Chat!</h1>
       <p>Como podemos lhe chamar?</p>
-      <form>
-        <input
-          value={name}
-          type="text"
-          placeholder="Usuário(a)"
-          onChange={setName}
-        />
-        <button onClick={loginHandler} type="button">
-          Entrar
-        </button>
-      </form>
+      <Form buttonName="Entrar" valueInput={name} onChange={setName} onClick={loginHandler} />
     </div>
   );
 }

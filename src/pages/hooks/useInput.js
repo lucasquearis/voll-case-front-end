@@ -7,7 +7,8 @@ const useInput = (initialState) => {
     const { value } = target;
     setState(value);
   };
-  return [state, setInputState];
+
+  return [state, setInputState, setState];
 };
 
 export default useInput;
