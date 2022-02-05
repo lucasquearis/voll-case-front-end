@@ -1,12 +1,19 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useCallback, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
-import messages from '../../mocks/messages';
 import ConditionalComponent from '../ConditionalComponent';
+import messagesThunk from '../../redux/thunk/messages';
 import './style.css';
 
 function Messages() {
+  const dispatch = useDispatch();
   const { userName } = useSelector((state) => state.userReducer);
+  const { messages } = useSelector((state) => state.messagesReducer);
+
+  useEffect(useCallback(() => {
+    dispatch(messagesThunk());
+  }, []));
+
   const typing = true;
   return (
     <div className="messages-list">
