@@ -10,9 +10,11 @@ import './style.css';
 function Chat() {
   const [message, setMessage, setStateMessage] = useInput('');
   const { userName } = useSelector((state) => state.userReducer);
+  const { socket } = useSelector((state) => state.socketReducer);
 
   const sendMessage = (e) => {
     e.preventDefault();
+    socket.emit('newMessage', { userName, message });
     setStateMessage('');
   };
 

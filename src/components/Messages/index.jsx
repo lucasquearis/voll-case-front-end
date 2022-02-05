@@ -14,7 +14,7 @@ function Messages() {
     dispatch(messagesThunk());
   }, []));
 
-  const typing = true;
+  const typing = false;
   return (
     <div className="messages-list">
       <ul className="ul-messages">
