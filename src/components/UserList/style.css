@@ -6,3 +6,9 @@
 .users-title {
   color: #7D9C30;
 }
+
+.users-list {
+  list-style: none;
+  padding: 0;
+  margin: 10px;
+}

@@ -2,10 +2,12 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
 import messages from '../../mocks/messages';
+import ConditionalComponent from '../ConditionalComponent';
 import './style.css';
 
 function Messages() {
   const { userName } = useSelector((state) => state.userReducer);
+  const typing = true;
   return (
     <div className="messages-list">
       <ul className="ul-messages">
@@ -21,6 +23,9 @@ function Messages() {
           );
         })}
       </ul>
+      <ConditionalComponent condition={typing} className="typing">
+        <p>Está digitando...</p>
+      </ConditionalComponent>
     </div>
   );
 }

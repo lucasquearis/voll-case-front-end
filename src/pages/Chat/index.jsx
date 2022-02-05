@@ -18,7 +18,7 @@ function Chat() {
 
   return userName ? (
     <div className="chat-container">
-      <h1>{`Bem vindo ao chat ${userName}`}</h1>
+      <h1 className="header-name">{`Bem vindo ao chat ${userName}!`}</h1>
       <div className="users-box">
         <div className="userlist">
           <UserList name={userName} />

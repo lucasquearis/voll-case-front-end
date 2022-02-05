@@ -4,6 +4,10 @@
   width: 100vw;
 }
 
+.header-name {
+  text-align: center;
+}
+
 .users-box {
   display: flex;
   background-image: url('../../images/defaultBackground.jpg');
