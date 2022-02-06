@@ -6,7 +6,7 @@ import { actionMessages } from '../actions/socket';
 const messages = () => async (dispatch) => {
   try {
     dispatch(actionLoading(true));
-    const response = await axios.get('http://localhost:3001/messages');
+    const response = await axios.get('https://lucasquearis-voll-solutions.herokuapp.com/messages');
     dispatch(actionMessages(latestThirty(response.data)));
     dispatch(actionLoading(false));
   } catch (error) {
