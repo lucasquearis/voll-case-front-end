@@ -8,7 +8,6 @@ const messages = () => async (dispatch) => {
     dispatch(actionLoading(true));
     const response = await axios.get('http://localhost:3001/messages');
     dispatch(actionMessages(latestThirty(response.data)));
-    // console.log(response);
     dispatch(actionLoading(false));
   } catch (error) {
     dispatch(actionError(error.response.statusText));

@@ -8,9 +8,10 @@ import './style.css';
 import { actionUserList } from '../../redux/actions/socket';
 import messages from '../../redux/thunk/messages';
 import { actionError } from '../../redux/actions/app';
+import { ALREADY_USED_NAME, CHAT_PATH, EMPTY } from '../../constants/list';
 
 function Login() {
-  const [name, setName] = useInput('');
+  const [name, setName] = useInput(EMPTY);
   const { socket, userList } = useSelector((state) => state.socketReducer);
 
   const navigate = useNavigate();
@@ -23,12 +24,12 @@ function Login() {
   const loginHandler = (e) => {
     e.preventDefault();
     if (userList.some((user) => user.name === name)) {
-      return dispatch(actionError('Esse nome já está sendo usado, por favor escolha outro'));
+      return dispatch(actionError(ALREADY_USED_NAME));
     }
     socket.emit('newUser', name);
     dispatch(actionUser(name));
     dispatch(messages());
-    return navigate('/chat');
+    return navigate(CHAT_PATH);
   };
 
   return (

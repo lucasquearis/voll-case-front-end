@@ -11,11 +11,12 @@ import ConditionalComponent from '../../components/ConditionalComponent';
 import './style.css';
 import { actionTyping } from '../../redux/actions/socket';
 import HeaderChat from '../../components/HeaderChat';
+import { EMPTY, TYPING_TIMEOUT_TIME, ZERO } from '../../constants/list';
 
 function Chat() {
   const dispatch = useDispatch();
   const [typing, setTyping] = useState(false);
-  const [message, setMessage, setStateMessage] = useInput('');
+  const [message, setMessage, setStateMessage] = useInput(EMPTY);
   const { userName } = useSelector((state) => state.userReducer);
   const { socket } = useSelector((state) => state.socketReducer);
   const typingReducer = useSelector((state) => state.messagesReducer.typing);
@@ -23,7 +24,7 @@ function Chat() {
   const sendMessage = (e) => {
     e.preventDefault();
     socket.emit('newMessage', { userName, message });
-    setStateMessage('');
+    setStateMessage(EMPTY);
   };
 
   useEffect(() => {
@@ -41,7 +42,7 @@ function Chat() {
     e.preventDefault();
     setTyping(true);
     setMessage(e);
-    setTimeout(() => setTyping(false), 700);
+    setTimeout(() => setTyping(false), TYPING_TIMEOUT_TIME);
   };
 
   return userName ? (
@@ -56,9 +57,9 @@ function Chat() {
       <div className="message-form">
         <Form buttonName="Enviar" valueInput={message} onChange={typingSender} onClick={sendMessage} />
       </div>
-      <ConditionalComponent className="typing-message" condition={typingReducer.length > 0}>
+      <ConditionalComponent className="typing-message" condition={typingReducer.length > ZERO}>
         {typingReducer.map((name) => {
-          if (name.length > 0) {
+          if (name.length > ZERO) {
             return (<p key={uuidv4()}>{`${name} está digitando...`}</p>);
           }
           return null;

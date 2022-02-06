@@ -1,6 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
+import { OTHERS, YOU } from '../../constants/list';
 import './style.css';
 
 function Messages() {
@@ -11,7 +12,7 @@ function Messages() {
     <div className="messages-list">
       <ul className="ul-messages">
         {messages.map((message) => {
-          const checkUserName = message.username === userName ? 'you' : 'others';
+          const checkUserName = message.username === userName ? YOU : OTHERS;
           return (
             <li className={`li-messages-${checkUserName}`} key={uuidv4()}>
               <div className={`message-box-${checkUserName}`}>
