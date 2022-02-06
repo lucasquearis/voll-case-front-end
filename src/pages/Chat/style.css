@@ -6,6 +6,7 @@
 
 .header-name {
   text-align: center;
+  width: 100%;
 }
 
 .users-box {
@@ -31,4 +32,9 @@
 }
 .message-form form input{
   width: 100%;
+}
+
+.chat-header {
+  display: flex;
+  justify-content: space-between;
 }

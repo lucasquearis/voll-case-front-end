@@ -16,3 +16,9 @@
   height: 300px;
   border: grey 1px solid;
 }
+
+.already-exist {
+  height: 100vh;
+  width: 100vw;
+  background-color: red;
+}
