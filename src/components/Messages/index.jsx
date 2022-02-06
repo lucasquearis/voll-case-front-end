@@ -1,20 +1,12 @@
-import React, { useCallback, useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import React from 'react';
+import { useSelector } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
-import ConditionalComponent from '../ConditionalComponent';
-import messagesThunk from '../../redux/thunk/messages';
 import './style.css';
 
 function Messages() {
-  const dispatch = useDispatch();
   const { userName } = useSelector((state) => state.userReducer);
   const { messages } = useSelector((state) => state.messagesReducer);
 
-  useEffect(useCallback(() => {
-    dispatch(messagesThunk());
-  }, []));
-
-  const typing = false;
   return (
     <div className="messages-list">
       <ul className="ul-messages">
@@ -25,14 +17,12 @@ function Messages() {
               <div className={`message-box-${checkUserName}`}>
                 <p className={`message-username-${checkUserName}`}>{message.username}</p>
                 <p className={`message-${checkUserName}`}>{message.message}</p>
+                <p className={`date-time-${checkUserName}`}>{message.time}</p>
               </div>
             </li>
           );
         })}
       </ul>
-      <ConditionalComponent condition={typing} className="typing">
-        <p>Está digitando...</p>
-      </ConditionalComponent>
     </div>
   );
 }

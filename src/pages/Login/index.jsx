@@ -7,6 +7,7 @@ import Form from '../../components/Form';
 import './style.css';
 import ConditionalComponent from '../../components/ConditionalComponent';
 import { actionUserList } from '../../redux/actions/socket';
+import messages from '../../redux/thunk/messages';
 
 function Login() {
   const { socket, userList } = useSelector((state) => state.socketReducer);
@@ -26,6 +27,7 @@ function Login() {
     }
     socket.emit('newUser', name);
     dispatch(actionUser(name));
+    dispatch(messages());
     return navigate('/chat');
   };
 

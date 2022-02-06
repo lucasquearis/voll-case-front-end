@@ -16,6 +16,8 @@
   display: flex;
   flex-direction: column;
   width: 100%;
+  overflow-y: auto;
+  flex-direction: column-reverse;
 }
 
 .ul-messages {
@@ -53,13 +55,13 @@
 .message-you {
   color: black;
   font-size: 22px;
-  margin: 0px 12px 12px 12px;
+  margin: 0px 12px 0px 12px;
 }
 
 .message-others {
   color: black;
   font-size: 22px;
-  margin: 0px 12px 12px 12px;
+  margin: 0px 12px 0px 12px;
 }
 
 .typing {
@@ -70,4 +72,14 @@
 
 .typing p {
   margin: 0;
+}
+
+.date-time-you {
+  margin: 0px 10px 0 10px;
+  font-size: 13px;
+}
+
+.date-time-others {
+  margin: 0px 10px 0 10px;
+  font-size: 13px;
 }
