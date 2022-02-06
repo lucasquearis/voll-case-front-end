@@ -1,7 +1,7 @@
 import socketIOClient from 'socket.io-client';
 import { SOCKET, USER_LIST, NEW_MESSAGE } from '../actions/socket';
 
-const URL = 'http://localhost:3001/';
+const URL = 'https://lucasquearis-voll-solutions.herokuapp.com/';
 const socket = socketIOClient(URL);
 
 const INITIAL_STATE = {
