@@ -1,0 +1,14 @@
+.no-user-container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.no-user-box {
+  text-align: center;
+  width: 500px;
+  height: 300px;
+  border: grey 1px solid;
+}
