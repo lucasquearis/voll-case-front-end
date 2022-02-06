@@ -22,7 +22,6 @@ function Login() {
 
   const loginHandler = (e) => {
     e.preventDefault();
-    console.log(userList);
     if (userList.some((user) => user.name === name)) {
       return dispatch(actionError('Esse nome já está sendo usado, por favor escolha outro'));
     }
