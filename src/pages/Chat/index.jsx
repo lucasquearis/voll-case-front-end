@@ -40,7 +40,7 @@ function Chat() {
     e.preventDefault();
     setTyping(true);
     setMessage(e);
-    setTimeout(() => setTyping(false), 2000);
+    setTimeout(() => setTyping(false), 700);
   };
 
   return userName ? (

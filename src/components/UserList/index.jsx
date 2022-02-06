@@ -9,6 +9,7 @@ function UserList() {
   return (
     <div className="users-container">
       <h1 className="users-title">Usuários Onlines</h1>
+      <hr />
       <ul className="users-list">
         {userList.map(({ name }) => (<li key={uuidv4()}>{name}</li>))}
       </ul>
