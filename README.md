@@ -20,11 +20,20 @@ A aplicação deve seguir esse modelo [Aqui](https://gfycat.com/webbedmisguidedh
 
 ## Sumário
 
+- [Deploy](#deploy)
 - [Iniciando a aplicação Localmente](#initApp)
 - [Arquitetura](#architecture)
 - [Páginas](#pages)
 - [Funcionalidades](#functionalities)
 - [Tecnologias utilizadas](#technologies)
+
+# <a name="deploy"></a> Deploy
+
+O deploy da aplicação foi feito na [netlify](https://www.netlify.com/).
+
+No seguinte link
+
+<code><https://lucasquearis-voll-solutions-case.netlify.app/login></code>
 
 # <a name="initApp"></a> Iniciando a Aplicação Localmente
 
